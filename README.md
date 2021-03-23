@@ -21,29 +21,41 @@
 ### 路径追踪
 
 由渲染方程舍弃自发光项后，形式如下：
+
 $$
 L_{o}(p,\omega _{o})= \int_ {\Omega^{+} } L_{i}(p_{i},\omega _{i})f_{i}(p,\omega_{i},\omega _{o})(n\cdot \omega_{i})d\omega_{i} 
 $$
+
 转换积分域后（转化积分域时，舍弃其他物体反射的能量）：
+
 $$
 L_{o1}(p,\omega _{o})=\int_{A} L_{i}(p_{i},\omega _{i})f_{i}(p,\omega_{i},\omega _{o})(n\cdot \omega_{i})\frac{(n^{'} \cdot\omega_{i})}{l^{2}}dA 
 $$
+
 其中dA为发光物体面积微元，对上式蒙特卡洛方法有(按均匀采样处理)：
+
 $$
 L_{o1}(p,\omega_{i}) =\sum L_{i}(p,\omega_{i})f_{i}(p,\omega _{i},\omega _{o}) (n\cdot \omega_{i})\frac{(n^{'} \cdot\omega_{i})}{l^{2}}A
 $$
+
 对于被舍弃的其他物体所反射的能量，其表达式为：
+
 $$
 L_{o2}(p,\omega _{o})= \int_ {\Omega^{+}/A } L_{i}(p_{i},\omega _{i})f_{i}(p,\omega_{i},\omega _{o})(n\cdot \omega_{i})d\omega_{i} 
 $$
+
 在此引入轮盘赌，假设每次能量弹射的概率为p，则有：
+
 $$
 L_{o2} =\sum L_{i}(p,\omega_{i})f_{i}(p,\omega _{i},\omega _{o}) (n\cdot \omega_{i})\frac{(n^{'} \cdot\omega_{i})}{l^{2}\cdot pdf(p)}\rho 
 $$
+
 故渲染方程有：
+
 $$
 L_{o}(p,\omega_{i})=L_{o1}(p,\omega_{i})+L_{o2}(p,\omega_{i})
 $$
+
 ## VS 相关
 
 &#8194;&#8194;本项目有使用OpenMP，运行时需将模式改为Release。
